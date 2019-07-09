@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "wvision",
+  "private_key_id": "db302771eaedf4299c82b831f8b4eea139c2f6ea",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyo+9VqLtzDXh6\ng+1QT5OUMZIbNYlm52fUYOtceTLR53dO3Fc6a5opMRFEjsywWCG8TC7G5NzoGJ5u\npLgFk41Q4HNx28QFUtwNHq6CCuLFqWEX/AwzAUhClyT6KrZ5pNsPgLA6VAaURihe\nyz7rtSTlKdsziLUk0Rj2ZOnKU9brPWntihXGVMTuYvbZ5ThYjKCB+m+xH2CeeD4l\nV/obF57o5MkIvITBAx2ESlX7g4lGG0HHC5u3dWJKnGP6+UhL5MwEvDEPHNe+GNqo\nuvv19rM6/UyLqKVZCY5rD2Yasmme8NMgxhtHkb6PsqkWgRNAUjnfOjLS8xbrxpqJ\njdD3rWhrAgMBAAECggEAIRi6SNaAFCrUvW4f05dKslQUy7G5iTUqSXDDaliSD82g\njx3Hk21IHIWYu2jxh2JsraQ3rmXMf7u/7qPZ7D6QGgHboaajxJC7cDrU/gbiSNi+\nwmDSKcj9CElUcnzjXdorM84V2Fik92egJx/kwmrHMSX2FLApT27l/xBnODMcSGzD\nBx7mlvkgQvcgpZ3dstKtdFlawKsNvdqgZkORQlanISuXBGEGdy5rVQUZuhHTHbwq\nPPERUbZz7tNGuVNf6lZHFYbmTS72PCE1uI2FrqLCVt3lAWFZXFZLRmIo5Fw4G5zF\nmizw1tXmRScOhSdDr1TZTAQra7iFa7XCIjBJA0EWUQKBgQDjE747RsQ5fmwmfVE8\nvoEJFHykNjx5ZXIQ3T2O2zMLvTk33gZREu65H58fAnHJgL7DJTNWNrnQ3aGk5qo9\nZSoY/9R0QQ7i0wRAv6aXjcnIgdncyaZOeccAH5UmGbV4B0ZSyBt8hcB+pbMzl1y4\nzX6FGIu3rumfdajj/xduiYk4NQKBgQDJZNMcyd69XKoI5I7aUSEiI0Jbe3BIZm5T\nYekXwnIknFO6Urpb0bwf1yUbE06dPrFg9wnFVr0NKTDF0D9/q2/9iJhhrcUE1avG\nh2Sh4lNwBeu8WYKZCjGnn5JinND+wJegdUlxxNZ/T+OinJRgC1YTTDzkpYj/9AvL\nip9N0ehyHwKBgE3D+SX7uj+mWAtmZ2fSJgaiCX2DRXqdj07PNcGyt+yRRQMo+ijR\nvwePGMNZ5vYHLU1PdCFWZJRvEmiSxkJ4Xs5o7q1RinOLqK0z9S151Vzhe2bteBLw\nCYK1TjLaIxeUBjVbam5er+mvfYtxjsOLPIUAPvkM4d1GQiyys6ebWm7xAoGACCDG\nmHHZSIE155f53/vIP412vyRzOqjPqRPZiXjyjGG2y11NYilL02kmeTpFQPlnxUcT\nIODIToCsFD+8YFW19mCN7dtKiVBqV1/dgt8UiP/kLLzcFXsg1+gLy2kS0kVJmVNC\nfJH6Kjc6M7ToFBxBBBRenMfFiLb7xuI4XbasD/cCgYEAzinmgSyp6pfxR3d358cz\naxYcw3hvCal7E8JkxWGWyiD8IptSWs0aIkokGs7NLNbEr1NtWQE9RCR4scl27HE7\nmOxPkemOEybR8UMgFApzlxFsAP903BYqIDlwJbt+Nw3iSQY9qzA3/5hPxcDta8Qz\ndja77J39LnLEG2Tdam1E17o=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mygarbagepred@wvision.iam.gserviceaccount.com",
+  "client_id": "112347381239163991287",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mygarbagepred%40wvision.iam.gserviceaccount.com"
+}

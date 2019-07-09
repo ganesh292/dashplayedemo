@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Video Demo</title>
+	
+
+	<link rel="stylesheet" type="text/css" href="./dist/css/epoch.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  </head>
+
+  <body>
+    <div class="main">
+      
+	  <span></span>
+	  <label class = "startbutton" for="select_video">Select Video:</label>
+	  <select class="menu" id="select_video">
+			<option value="1" selected>Video1</option>
+			<option value="2">Video2</option>
+			<option value="3">Video3</option>
+			<option value="4" >Video4</option>
+			<option value="5">Video5</option>
+			<option value="6">Video6</option>
+			<option value="7">Video7</option>
+			<option value="8">Video8</option>
+			<option value="9">Video9</option>
+			<option value="10">Video10</option>
+			<option value="11">Video11</option>
+			<option value="12">Video12</option>
+		  </select>
+	  <span></span>
+	  <button class="startbutton" id="start_demo" onclick="onStartResetButtonClicked()">Start</button>
+	  <button class="startbutton" id="stop_demo" onclick="stopvideos()">Stop</button>
+	  
+     
+
+      <div class="trace">
+     
+
+	<select id="select_algo1">
+    	  <option value="0" selected>yin2015qoe</option>
+    	  <option value="1">spiteri2016qoe</option>
+    	  <option value="2">bentaleb2016qoe</option>
+    	  <option value="3">ksqi</option>
+		</select>
+		
+
+	
+		<select id="select_algo2">
+			<option value="0" selected>yin2015qoe</option>
+			<option value="1">spiteri2016qoe</option>
+			<option value="2">bentaleb2016qoe</option>
+			<option value="3">ksqi</option>
+		  </select>
+  
+	</div>
+
+
+
+      <div class="video">
+    	<div id="player1">
+    	  <video id="ours" controls>
+    	</div>
+    	<div id="player2">
+    	  <video id="others" controls>
+    	</div>
+      </div>
+	  <h3>Choose Graph Type:</h3>
+	  <ul class="checkbox-grid">
+			<li><input type="checkbox" name="text" value="1" /><label>Bitrate</label></li>
+			<li><input type="checkbox" name="text" value="2" /><label>VMAF</label></li>
+			<!-- <li><input type="checkbox" name="text" value="3" /><label>Rebuffering Rate</label></li> -->
+		  </ul>
+		  <br>
+		  <br>
+
+		  <div class="video chart-container1 graph">
+			<div id="fig1">
+			<canvas  id="chart1"></canvas>
+			</div>
+			<span></span>
+			<span></span>
+			<div id = "fig2">
+			<canvas id="chart2"></canvas>
+			</div>	
+			</div>
+   
+	</div>
+  </body>
+  <!-- <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script> -->
+  <script src="dash.all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="d3.v3.min.js"></script>
+  <script src='FixedPathRule.js' class='code'></script>
+  <script src='Trace.js' class='code'></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- <script src="./dist/js/epoch.min.js"></script> -->
+  <script type="text/javascript" src="PlayerController.js"></script>
+
+</html>
