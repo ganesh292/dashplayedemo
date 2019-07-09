@@ -32,6 +32,7 @@ var chart2 = new Chart(ctx, {
         labels: ['0','1','2','3', '4','5','6','7','8','9', '10','11', '12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
         datasets: [{
             label: 'Bitrate',
+            data:[],
             fontSize: 20,
             fill: false,
             lineTension: 0.1,
@@ -48,10 +49,11 @@ var chart2 = new Chart(ctx, {
             pointHoverBackgroundColor: "rgba(75,192,192,1)",
             pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
-            pointRadius: 5,
+            pointRadius: 2,
             pointHitRadius: 10,
-            data: [],
+            xAxis:'D',
             yAxisID: 'A',
+            steppedLine:'after'
 
         },{
             label: 'VMAF',
@@ -73,13 +75,32 @@ var chart2 = new Chart(ctx, {
             pointRadius: 5,
             yAxisID: 'B',
             pointHitRadius: 10,
-            data: []
+            data: [],
+            steppedLine:'after'
         }]
     },
 
     // Configuration options go here
     options: {
         scales: {
+            xAxes: [{
+                id: 'D',
+                type: 'linear',
+                // position: 'bottom',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Time',
+                    fontSize: 24
+                },
+                ticks: {
+                    max: 30,
+                    min: 0,
+                    fontSize: 15,
+                    stepSize: 2
+                }
+            }],
+
+
           yAxes: [{
             id: 'A',
             type: 'linear',
@@ -131,6 +152,7 @@ var chart1 = new Chart(ctx, {
         labels: ['0','1','2','3', '4','5', '6','7','8','9', '10','11', '12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],
         datasets: [{
             label: 'Bitrate',
+            data:[],
             fontSize: 20,
             fill: false,
             lineTension: 0.1,
@@ -147,10 +169,11 @@ var chart1 = new Chart(ctx, {
             pointHoverBackgroundColor: "rgba(75,192,192,1)",
             pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
-            pointRadius: 5,
+            pointRadius: 2,
             pointHitRadius: 10,
-            data: [],
+            xAxisID: 'C',
             yAxisID: 'A',
+            steppedLine: 'after'
 
         },{
             label: 'VMAF',
@@ -169,16 +192,33 @@ var chart1 = new Chart(ctx, {
             pointHoverBackgroundColor: "rgba(75,192,192,1)",
             pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
-            pointRadius: 5,
+            pointRadius: 3,
             yAxisID: 'B',
             pointHitRadius: 10,
-            data: []
+            data: [],
+            steppedLine:'after'
         }]
     },
 
     // Configuration options go here
     options: {
         scales: {
+            xAxes:[{
+                id: 'C',
+                type: 'linear',
+                // position: 'bottom',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Time',
+                    fontSize: 24
+                },
+                ticks: {
+                    max: 30,
+                    min: 0,
+                    fontSize: 15,
+                    stepSize:2
+                }
+            }],
           yAxes: [{
             id: 'A',
             // type: 'linear',
@@ -189,7 +229,7 @@ var chart1 = new Chart(ctx, {
                 fontSize: 24
               },
             ticks: {
-                max: 10000,
+                max: 6000,
                 min: 0,
                 fontSize: 20
               }
@@ -426,10 +466,12 @@ function displaychart2(videoid,algo,selected){
 }
 
 function addData(chart, data, labels) {
+    
     chart.data.datasets.forEach((dataset) => {
         if (dataset.label == labels)
-        {
-            dataset.data.push(data);
+        {            
+            var temp_data={x:data.time,y:data.y};
+            dataset.data.push(temp_data);
         }
     });
     chart.update();
