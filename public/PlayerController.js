@@ -3,7 +3,10 @@ var player2;
 var isStarted = false;
 var graphoptions = [];
 var linedata = [];
-
+var rebufferStartvid1;
+var rebufferEndvid1;
+var rebufferStartvid2;
+var rebufferEndvid2;
 
 
 var Bitrate = [];
@@ -305,7 +308,12 @@ function resetAll() {
     // resetPlaybackStats();
     // clearAllTimeouts();
 }
-
+var pending = {};
+function mySetTimeout(callback, delay) {
+    var t;
+    t = setTimeout(function () { delete pending[t]; callback() }, delay)
+    pending[t] = 1;
+}
 function playVideo(selected) {
 
     var s1 = document.getElementById("select_algo1");
@@ -344,16 +352,39 @@ function playVideo(selected) {
                 url = "http://vision-pc18.uwaterloo.ca/DASH/06/manifest.mpd";
                 // chunkDuration = 4.003;
                 }
-            else{
-                url = "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
-
-            }
+    else if (videoid == 7) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/07/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
+    else if (videoid == 8) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/08/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
+    else if (videoid == 9) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/09/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
+    else if (videoid == 10) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/10/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
+    else if (videoid == 11) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/11/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
+    else if (videoid == 12) {
+        url = "http://vision-pc18.uwaterloo.ca/DASH/12/manifest.mpd";
+        // chunkDuration = 4.003;
+    }
     // url = "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
     // start player
     player = dashjs.MediaPlayer().create();
     var trace1;
     
     trace1 = getPlaybackResult(videoid-1,algo1);
+    rebufferStartvid1=trace1.rebufferStart;
+    rebufferEndvid1 = trace1.rebufferEnd;
+    
     // settings
     player.updateSettings({
         'streaming': {
@@ -373,6 +404,10 @@ function playVideo(selected) {
     player2 = dashjs.MediaPlayer().create();
     var trace2;
     trace2 = getPlaybackResult(videoid-1,algo2);
+    rebufferStartvid2 = trace2.rebufferStart;
+    rebufferEndvid2 = trace2.rebufferEnd;
+    console.log(rebufferStartvid2);
+    
     // settings
     player2.updateSettings({
         'streaming': {
@@ -388,15 +423,30 @@ function playVideo(selected) {
     player2.addABRCustomRule('qualitySwitchRules', 'FixedPathRule', FixedPathRule);
     player2.initialize(document.querySelector("#others"), url, true);
     
-    debugger;
+    // debugger;
     var vid1 = document.getElementById("ours");
     var vid2 = document.getElementById("others");
 
-    vid2.play();
-    vid1.play();
+    // vid2.play();
+    // vid1.play();
+    var iRebuffer;
+    for (iRebuffer = 1; iRebuffer < rebufferStartvid1.length; iRebuffer++) { 
+        console.log("In loop");
+        
+        mySetTimeout(function () { vid1.pause(); /*document.getElementById("isRebuf1").innerHTML = "Rebuffering"; */}, 1000 * rebufferStartvid1[iRebuffer]);
+        mySetTimeout(function () { vid1.play(); /*document.getElementById("isRebuf1").innerHTML = ""; */}, 1000 * rebufferEndvid1[iRebuffer]);
+    }
+
+    for (iRebuffer = 1; iRebuffer < rebufferStartvid2.length; iRebuffer++) { // ignoring startup time
+        mySetTimeout(function () { vid2.pause(); /*document.getElementById("isRebuf2").innerHTML = "Rebuffering"; */}, 1000 * rebufferStartvid2[iRebuffer]);
+        mySetTimeout(function () { vid2.play(); /*document.getElementById("isRebuf2").innerHTML = ""; */}, 1000 * rebufferEndvid2[iRebuffer]);
+    }
+
+
     displaychart1(videoid,algo1,selected)
     displaychart2(videoid,algo2,selected);
 }
+
 
 function displaychart1(videoid,algo,selected){
 
